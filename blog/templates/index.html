@@ -1,0 +1,18 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<h1>Your movie decider.</h1>
+<p>
+Moovies is a website designed to make finding the right movie easy. We strive to write movie guides and reviews that are useful and entertaining, so you can spend less time searching and more time watching.
+</p>
+
+<h4>Check out some of our recent posts</h4>
+{% for blog in blogs %}
+  <li><a href="{{ blog.get_absolute_url }}">{{ blog.name }}</a> ({{blog.post_date}})</li>
+{% endfor %}
+
+<br>
+<p>Questions, concerns, props? <a mailto="team@rezemo">Drop us a line</a></p>
+
+{% endblock %}

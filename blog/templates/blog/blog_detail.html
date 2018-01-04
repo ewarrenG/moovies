@@ -1,0 +1,30 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>{{blog.name}}</h1>
+	<p><strong>Post date:</strong> {{ blog.post_date }}</p> 
+	<p><strong>Author:</strong> <a href="{% url 'blogauthor-detail' blog.author.pk %}">{{ blog.author }}</a></p> 
+	<p>{{ blog.description }}</p>
+    
+    {% if movie_list %}
+    <h2>The Movies</h2>
+    
+
+      {% for movie in movie_list %}
+
+		<div class="movie">
+			<img class="movie-poster" src="{{movie.artwork.url}}" />
+			<div class="movie-text">
+			<h3>{{movie.name}}</h3>
+			<p><i>Director:</i> {{movie.director}}</p>
+			<p>{{movie.blurb}}</p>
+			</div>
+		</div>
+
+      {% endfor %}
+
+
+    {% else %}
+      <p>There are no movies in this collection</p>
+    {% endif %}       
+{% endblock %}
