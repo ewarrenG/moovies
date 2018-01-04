@@ -13,7 +13,7 @@
       {% for movie in movie_list %}
 
 		<div class="movie">
-			<img class="movie-poster" src="{{movie.artwork.url}}" />
+			{% if movie.artwork_url%}<img class="movie-poster" src="{{movie.artwork_url}}" />{% endif %}
 			<div class="movie-text">
 			<h3>{{movie.name}}</h3>
 			<p><i>Director:</i> {{movie.director}}</p>
