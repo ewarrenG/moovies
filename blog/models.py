@@ -106,7 +106,7 @@ class Movie(models.Model):
     blurb = models.TextField(max_length=2000,help_text="Enter movie blurb",null=True,blank=True)
     collection = models.CharField(max_length=400,help_text="Enter name of collection")
     artwork = models.ImageField()
-    artwork_url = models.CharField(max_length=400,help_text="Enter url of movie artwork")
+    artwork_url = models.CharField(max_length=400,help_text="Enter url of movie artwork",null=True,blank=True)
 
     def get_absolute_url(self):
         """
