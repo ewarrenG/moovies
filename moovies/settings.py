@@ -86,17 +86,6 @@ DATABASES = {
 }
 
 
-"""DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'moovies',
-        'USER': 'elliot',
-        'PASSWORD': 'flower34', #absolutely insane
-        'HOST': '127.0.0.1',
-        'PORT': ''
-    }
-}"""
-
 #for production
 import dj_database_url
 db_from_env = dj_database_url.config(conn_max_age=500)
