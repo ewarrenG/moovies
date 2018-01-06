@@ -40,7 +40,7 @@ class BlogDetailView(generic.ListView): #lol
 		"""
 		id = self.kwargs['pk']
 		target_collection=get_object_or_404(Collection, pk = id)
-		return Movie.objects.filter(collection=target_collection)
+		return Movie.objects.filter(collection=target_collection).order_by('-release-date')
 
 	def get_context_data(self, **kwargs):
 		"""
