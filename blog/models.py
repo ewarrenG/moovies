@@ -102,10 +102,12 @@ class Blog(models.Model):
 class Movie(models.Model):
     #title = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     name = models.CharField(max_length=400,help_text="Enter name of movie")
-    director = models.CharField(max_length=400,help_text="Enter name of director")
+    director = models.CharField(max_length=400,help_text="Enter name of director")    
+    release_date = models.DateField(null=True,blank=True)
+    rating = models.DecimalField(max_digits=3, decimal_places=1,help_text="Enter moovies rating",null=True,blank=True)
     blurb = models.TextField(max_length=2000,help_text="Enter movie blurb",null=True,blank=True)
     collection = models.CharField(max_length=400,help_text="Enter name of collection")
-    artwork = models.ImageField()
+    #artwork = models.ImageField()
     artwork_url = models.CharField(max_length=400,help_text="Enter url of movie artwork",null=True,blank=True)
 
     def get_absolute_url(self):

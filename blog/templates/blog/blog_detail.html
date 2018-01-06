@@ -17,6 +17,8 @@
 			<div class="movie-text">
 			<h3>{{movie.name}}</h3>
 			<p><i>Director:</i> {{movie.director}}</p>
+			{% if movie.release_date%}<p><i>Released: </i>{{movie.release_date}}</p>{% endif %}
+			{% if movie.rating%}<p>Moovies rating&copy;: {{movie.rating}}</p>{% endif %}
 			<p>{{movie.blurb}}</p>
 			</div>
 		</div>
@@ -27,4 +29,8 @@
     {% else %}
       <p>There are no movies in this collection</p>
     {% endif %}       
+
+	<br>
+    <p class="text-center"><a href="{{request.META.HTTP_REFERER}}">Go back</a></p>
+
 {% endblock %}

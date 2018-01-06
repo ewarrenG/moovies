@@ -39,10 +39,7 @@ class BlogDetailView(generic.ListView): #lol
 		Return list of Blog objects created by BlogAuthor (author id specified in URL)
 		"""
 		id = self.kwargs['pk']
-		print(id)
 		target_collection=get_object_or_404(Collection, pk = id)
-		print(target_collection)
-		print(Movie.objects.filter(collection=target_collection))
 		return Movie.objects.filter(collection=target_collection)
 
 	def get_context_data(self, **kwargs):
@@ -80,7 +77,7 @@ class BlogAuthorDetailView(generic.ListView): #lol
         """
         id = self.kwargs['pk']
         target_author=get_object_or_404(BlogAuthor, pk = id)
-        return Blog.objects.filter(author=target_author)
+        return Blog.objects.filter(author=target_author).order_by('-release-date')
         
     def get_context_data(self, **kwargs):
         """
@@ -91,3 +88,15 @@ class BlogAuthorDetailView(generic.ListView): #lol
         # Get the blogger object from the "pk" URL parameter and add it to the context
         context['blogger'] = get_object_or_404(BlogAuthor, pk = self.kwargs['pk'])
         return context
+
+#import services
+
+"""from .services import get_books
+class BooksPage(generic.TemplateView):
+	print("BooksPage")
+	def get(self,request):
+		print(self)
+		print(request)
+		books_list = services.get_books('2009', 'edwards')
+		print("books_list");
+		return render(request,'books.html',books_list)"""

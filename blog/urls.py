@@ -11,5 +11,8 @@ urlpatterns = [
 
     url(r'^bloggers/$', views.BlogAuthorListView.as_view(), name='blogauthor-list'),
     url(r'^blogger/(?P<pk>\d+)$', views.BlogAuthorDetailView.as_view(), name='blogauthor-detail'),
+
+    #url(r'^books/$', views.BooksPage, name='books'),
+
 ]
 
